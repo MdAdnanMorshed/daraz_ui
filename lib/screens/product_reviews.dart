@@ -328,7 +328,7 @@ class _ProductReviewsState extends State<ProductReviews> {
                     ratingWidget: RatingWidget(
                       full: Icon(FontAwesome.star, color: Colors.amber),
                       empty: Icon(FontAwesome.star,
-                          color: Color.fromRGBO(224, 224, 225, 1)),
+                          color: Color.fromRGBO(224, 224, 225, 1)), half: null,
                     ),
                     itemPadding: EdgeInsets.only(right: 1.0),
                     onRatingUpdate: (rating) {
