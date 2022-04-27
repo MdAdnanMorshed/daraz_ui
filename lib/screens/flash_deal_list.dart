@@ -119,27 +119,26 @@ class _FlashDealListState extends State<FlashDealList> {
   }
 
   String timeText(String txt, {default_length = 3}) {
-    var blank_zeros = default_length == 3 ? "000" : "00";
-    var leading_zeros = "";
+    var blankZeros = default_length == 3 ? "000" : "00";
+    var leadingZeros = "";
     if (txt != null) {
       if (default_length == 3 && txt.length == 1) {
-        leading_zeros = "00";
+        leadingZeros = "00";
       } else if (default_length == 3 && txt.length == 2) {
-        leading_zeros = "0";
+        leadingZeros = "0";
       } else if (default_length == 2 && txt.length == 1) {
-        leading_zeros = "0";
+        leadingZeros = "0";
       }
     }
 
-    var newtxt = (txt == null || txt == "" || txt == null.toString())
-        ? blank_zeros
-        : txt;
+    var newtxt =
+        (txt == null || txt == "" || txt == null.toString()) ? blankZeros : txt;
 
     // print(txt + " " + default_length.toString());
     // print(newtxt);
 
     if (default_length > txt.length) {
-      newtxt = leading_zeros + newtxt;
+      newtxt = leadingZeros + newtxt;
     }
     //print(newtxt);
 
@@ -155,9 +154,9 @@ class _FlashDealListState extends State<FlashDealList> {
 
     void onEnd() {}
 
-    CountdownTimerController time_controller =
+    CountdownTimerController timeController =
         CountdownTimerController(endTime: endTime, onEnd: onEnd);
-    _timerControllerList.add(time_controller);
+    _timerControllerList.add(timeController);
 
     return Padding(
       padding: const EdgeInsets.only(bottom: 8.0),
@@ -167,8 +166,12 @@ class _FlashDealListState extends State<FlashDealList> {
           return GestureDetector(
             onTap: () {
               if (time == null) {
-                ToastComponent.showDialog(AppLocalizations.of(context).flash_deal_list_screen_flash_deal_has_ended, context,
-                    gravity: Toast.CENTER, duration: Toast.LENGTH_LONG);
+                ToastComponent.showDialog(
+                    AppLocalizations.of(context)
+                        .flash_deal_list_screen_flash_deal_has_ended,
+                    context,
+                    gravity: Toast.CENTER,
+                    duration: Toast.LENGTH_LONG);
               } else {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
                   return FlashDealProducts(
@@ -215,7 +218,8 @@ class _FlashDealListState extends State<FlashDealList> {
                   child: Center(
                       child: time == null
                           ? Text(
-                        AppLocalizations.of(context).flash_deal_list_screen_ended,
+                              AppLocalizations.of(context)
+                                  .flash_deal_list_screen_ended,
                               style: TextStyle(
                                   color: MyTheme.accent_color,
                                   fontSize: 16.0,

@@ -7,7 +7,6 @@ import 'package:active_ecommerce_flutter/helpers/string_helper.dart';
 import 'package:active_ecommerce_flutter/helpers/shared_value_helper.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-
 class FlashDealProducts extends StatefulWidget {
   FlashDealProducts({Key key, this.flash_deal_id, this.flash_deal_name})
       : super(key: key);
@@ -37,18 +36,18 @@ class _FlashDealProductsState extends State<FlashDealProducts> {
     super.initState();
   }
 
-  _buildSearchList(search_key) async {
+  _buildSearchList(searchKey) async {
     _searchList.clear();
     print(_fullList.length);
 
-    if (search_key.isEmpty) {
+    if (searchKey.isEmpty) {
       _searchList.addAll(_fullList);
       setState(() {});
       //print("_searchList.length on empty " + _searchList.length.toString());
       //print("_fullList.length on empty " + _fullList.length.toString());
     } else {
       for (var i = 0; i < _fullList.length; i++) {
-        if (StringHelper().stringContains(_fullList[i].name, search_key)) {
+        if (StringHelper().stringContains(_fullList[i].name, searchKey)) {
           _searchList.add(_fullList[i]);
           setState(() {});
         }
@@ -71,16 +70,16 @@ class _FlashDealProductsState extends State<FlashDealProducts> {
     );
   }
 
-  bool shouldProductBoxBeVisible(product_name, search_key) {
-    if (search_key == "") {
+  bool shouldProductBoxBeVisible(productName, searchKey) {
+    if (searchKey == "") {
       return true; //do not check if the search key is empty
     }
-    return StringHelper().stringContains(product_name, search_key);
+    return StringHelper().stringContains(productName, searchKey);
   }
 
   AppBar buildAppBar(BuildContext context) {
     return AppBar(
-backgroundColor: Colors.white,
+      backgroundColor: Colors.white,
       toolbarHeight: 75,
       /*bottom: PreferredSize(
           child: Container(
@@ -107,7 +106,9 @@ backgroundColor: Colors.white,
             onTap: () {},
             autofocus: true,
             decoration: InputDecoration(
-                hintText: "${AppLocalizations.of(context).flash_deal_products_screen_search_products_from} : " + widget.flash_deal_name,
+                hintText:
+                    "${AppLocalizations.of(context).flash_deal_products_screen_search_products_from} : " +
+                        widget.flash_deal_name,
                 hintStyle:
                     TextStyle(fontSize: 14.0, color: MyTheme.textfield_grey),
                 enabledBorder: OutlineInputBorder(

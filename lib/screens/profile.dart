@@ -256,9 +256,9 @@ class _ProfileState extends State<Profile> {
         ),
         InkWell(
           onTap: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context) {
-              return Address();
-            }));
+            // Navigator.push(context, MaterialPageRoute(builder: (context) {
+            //   return Address();
+            // }));
           },
           child: Column(
             children: [

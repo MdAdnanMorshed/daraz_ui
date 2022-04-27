@@ -283,14 +283,14 @@ class _ShippingInfoState extends State<ShippingInfo> {
                                   child: Center(
                                       child: InkWell(
                                     onTap: () {
-                                      Navigator.push(context,
-                                          MaterialPageRoute(builder: (context) {
-                                        return Address(
-                                          from_shipping_info: true,
-                                        );
-                                      })).then((value) {
-                                        onPopped(value);
-                                      });
+                                      // Navigator.push(context,
+                                      //     MaterialPageRoute(builder: (context) {
+                                      //   return Address(
+                                      //     from_shipping_info: true,
+                                      //   );
+                                      // })).then((value) {
+                                      //   onPopped(value);
+                                      // });
                                     },
                                     child: Padding(
                                       padding: const EdgeInsets.all(8.0),
